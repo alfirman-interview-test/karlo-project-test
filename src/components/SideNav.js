@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Data } from "../App";
+
 export default function SideNav({ isSideNavOpened, isHide }) {
+  const data = useContext(Data);
   return (
     <div
       className={`${!isSideNavOpened ? "-translate-x-96" : "translate-x-0"} ${
@@ -12,22 +17,24 @@ export default function SideNav({ isSideNavOpened, isHide }) {
           </button>
         </div>
         <div className="w-5/6 mx-auto mt-5 space-y-5 mb-[75vh]">
-          {[1, 1, 1, 1, 1, 1, 1, 1].map((el, i) => (
-            <div key={i}>
+          {categories.map((el, idx) => (
+            <div key={idx}>
               <button className="text-sm uppercase py-2 px-3 w-full bg-sky-500 text-white rounded-md shadow text-left">
-                seminar & workshop
+                {el.name}
               </button>
               <ul className="mt-2 space-y-2">
-                <li>
-                  <button className="text-sm py-2 px-3 text-left w-full bg-white hover:underline rounded-md shadow">
-                    seminar & workshop
-                  </button>
-                </li>
-                <li>
-                  <button className="text-sm py-2 px-3 text-left w-full bg-white hover:underline rounded-md shadow">
-                    seminar & workshop
-                  </button>
-                </li>
+                {data[el.key].map((e, i) => (
+                  <li key={i}>
+                    <Link
+                      to={
+                        "/" + e.title.replace(/\W+/g, " ").split(" ").join("_")
+                      }
+                      className="text-sm py-2 px-3 text-left w-full bg-white hover:underline rounded-md shadow inline-block"
+                    >
+                      {e.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           ))}
@@ -36,3 +43,30 @@ export default function SideNav({ isSideNavOpened, isHide }) {
     </div>
   );
 }
+
+const categories = [
+  {
+    name: "SEMINAR & WORKSHOP",
+    key: "seminar",
+  },
+  {
+    name: "ACHIEVEMENT",
+    key: "achievement",
+  },
+  {
+    name: "NEWS",
+    key: "news",
+  },
+  {
+    name: "PARTNERSHIP",
+    key: "partnership",
+  },
+  {
+    name: "Kompetisi MAPID",
+    key: "teknis_kompetisi_mapid",
+  },
+  {
+    name: "Weekly MAPID Blog",
+    key: "weekly_mapid_blog",
+  },
+];

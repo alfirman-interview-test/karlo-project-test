@@ -1,11 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Data } from "../App";
 import Author from "../components/Author";
 import EditorState from "../components/EditorState";
 import SideNav from "../components/SideNav";
+import Toggle from "../components/Toggle";
+import useScroll from "../lib/useScroll";
 import getStringDate from "../utils/getStringDate";
 
 export default function Home() {
+  const [isSideNavOpened, setSideNavOpened] = useState(false); // horizontal
+  const [isHide, setHide] = useState(true); // vertical
+  const { scrollY } = useScroll();
+
   const data = useContext(Data);
   let contentData;
   let editorState;
@@ -15,9 +21,20 @@ export default function Home() {
     editorState = JSON.parse(data[0].editorState);
   }
 
+  useEffect(() => {
+    if (scrollY > 300) setHide(false);
+    else setHide(true);
+  }, [scrollY]);
+
   return (
     <div className="min-h-[500vh]">
-      <SideNav />
+      <SideNav isSideNavOpened={isSideNavOpened} isHide={isHide} />
+      <Toggle
+        isHide={isHide}
+        setHide={setHide}
+        setSideNavOpened={setSideNavOpened}
+        isSideNavOpened={isSideNavOpened}
+      />
       <div
         className="h-[500px] bg-cover bg-top flex items-end"
         style={{

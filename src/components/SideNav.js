@@ -1,11 +1,12 @@
-import Toggle from "./Toggle";
-
-export default function SideNav() {
+export default function SideNav({ isSideNavOpened, isHide }) {
   return (
-    <div className="fixed bottom-8 left-8 border border-zinc-300 rounded-2xl shadow w-[300px] h-[520px] bg-zinc-200">
-      <div className="absolute -top-5 w-full flex justify-center">
-        <Toggle />
-      </div>
+    <div
+      className={`${
+        !isSideNavOpened ? "-translate-x-[30vw]" : "translate-x-0"
+      } ${
+        isHide ? "translate-y-[60vh]" : "translate-y-0"
+      } fixed bottom-8 left-8 border border-zinc-300 rounded-2xl shadow w-[300px] h-[520px] bg-zinc-200 transform duration-500`}
+    >
       <div className="flex justify-center text-slate-800 mt-10">
         <button className="uppercase py-2 px-5 bg-white rounded-full shadow">
           blog

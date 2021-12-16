@@ -6,7 +6,7 @@ export default function Toggle({ setSideNavOpened, isSideNavOpened, isHide }) {
         !isSideNavOpened ? "-translate-x-36 rotate-180" : "translate-x-0"
       } ${
         isHide ? "translate-y-[60vh]" : "translate-y-0"
-      } h-10 w-10 bg-sky-500 text-white rounded-full p-2 fixed top-[85px] left-40 transform duration-500`}
+      } h-10 w-10 bg-sky-500 text-white rounded-full p-2 fixed bottom-[532px] left-40 transform duration-500`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

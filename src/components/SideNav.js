@@ -2,7 +2,7 @@ export default function SideNav({ isSideNavOpened, isHide }) {
   return (
     <div
       className={`${
-        !isSideNavOpened ? "-translate-x-[30vw]" : "translate-x-0"
+        !isSideNavOpened ? "-translate-x-96" : "translate-x-0"
       } ${
         isHide ? "translate-y-[60vh]" : "translate-y-0"
       } fixed bottom-8 left-8 border border-zinc-300 rounded-2xl shadow w-[300px] h-[520px] bg-zinc-200 transform duration-500`}

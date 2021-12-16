@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Data } from "../App";
 import Author from "../components/Author";
 import EditorState from "../components/EditorState";
+import SideNav from "../components/SideNav";
 import getStringDate from "../utils/getStringDate";
 
 export default function Home() {
@@ -16,16 +17,19 @@ export default function Home() {
 
   return (
     <div className="min-h-[500vh]">
+      <SideNav />
       <div
-        className="h-[500px] bg-cover bg-top flex items-end px-12"
+        className="h-[500px] bg-cover bg-top flex items-end"
         style={{
           background: `linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.733), rgb(255, 255, 255)), url('${editorState?.entityMap[0].data.src}') center 38% / cover no-repeat`,
         }}
       >
-        <h1 className="text-6xl font-extrabold mb-24">{contentData?.title}</h1>
+        <h1 className="text-6xl font-extrabold mb-24 mx-auto w-5/6">
+          {contentData?.title}
+        </h1>
       </div>
       <div className="flex justify-center">
-        <div className="w-1/2">
+        <div className="w-1/3">
           <Author
             pp={contentData?.authors[0].user.profile_picture.url_compressed}
             name={contentData?.authors[0].user.full_name}

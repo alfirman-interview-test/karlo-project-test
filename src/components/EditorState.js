@@ -7,18 +7,22 @@ export default function EditorState({ editorState }) {
         ))}
       </ul>
       <div className="flex justify-center">
-        <img
-          src={editorState?.entityMap[0].data.src}
-          alt={editorState?.entityMap[0].data.src}
-          className="w-3/4"
-        />
+        {editorState?.entityMap.length && (
+          <img
+            src={editorState?.entityMap[0].data.src}
+            alt={editorState?.entityMap[0].data.src}
+            className="w-3/4"
+          />
+        )}
       </div>
-      <a
-        href={editorState?.entityMap[1].data.link_url}
-        className="text-blue-500 hover:underline inline-block"
-      >
-        {editorState?.entityMap[1].data.link_url}
-      </a>
+      {editorState?.entityMap.length && (
+        <a
+          href={editorState.entityMap[1].data.link_url}
+          className="text-blue-500 hover:underline inline-block"
+        >
+          {editorState?.entityMap[1].data.link_url}
+        </a>
+      )}
     </main>
   );
 }

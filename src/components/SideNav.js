@@ -23,18 +23,24 @@ export default function SideNav({ isSideNavOpened, isHide }) {
                 {el.name}
               </button>
               <ul className="mt-2 space-y-2">
-                {data[el.key].map((e, i) => (
-                  <li key={i}>
-                    <Link
-                      to={
-                        "/" + e.title.replace(/\W+/g, " ").split(" ").join("_")
-                      }
-                      className="text-sm py-2 px-3 text-left w-full bg-white hover:underline rounded-md shadow inline-block"
-                    >
-                      {e.title}
-                    </Link>
-                  </li>
-                ))}
+                {Object.values(data).length &&
+                  data[el.key].map((e, i) => (
+                    <li key={i}>
+                      <Link
+                        to={
+                          "/" +
+                          e.title
+                            .replace(/\W+/g, " ")
+                            .split(" ")
+                            .join("_")
+                            .toLowerCase()
+                        }
+                        className="text-sm py-2 px-3 text-left w-full bg-white hover:underline rounded-md shadow inline-block"
+                      >
+                        {e.title}
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </div>
           ))}

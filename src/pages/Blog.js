@@ -55,7 +55,7 @@ export default function Blog() {
         </h1>
       </div>
       <div className="flex justify-center">
-        <div className="w-5/6 lg:w-1/3">
+        <div className="w-5/6 lg:w-1/3 pb-[200px]">
           <Author
             pp={contentData?.authors[0].user?.profile_picture.url_compressed}
             name={contentData?.authors[0].user?.full_name}

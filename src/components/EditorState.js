@@ -15,14 +15,17 @@ export default function EditorState({ editorState }) {
           />
         )}
       </div>
-      {Object.values(editorState?.entityMap || {}).length && (
-        <a
-          href={editorState.entityMap[1]?.data.link_url}
-          className="text-blue-500 hover:underline inline-block"
-        >
-          {editorState?.entityMap[1]?.data.link_url}
-        </a>
-      )}
+      <div className="w-full overflow-hidden">
+        {Object.values(editorState?.entityMap || {}).length && (
+          <a
+            href={editorState.entityMap[1]?.data.link_url}
+            style={{ overflowWrap: "break-word" }}
+            className="text-blue-500 hover:underline"
+          >
+            {editorState?.entityMap[1]?.data.link_url}
+          </a>
+        )}
+      </div>
     </main>
   );
 }

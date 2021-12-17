@@ -38,8 +38,6 @@ export default function Blog() {
     }
   }
 
-  console.log(editorState)
-
   return (
     <div className="min-h-[500vh]">
       <div

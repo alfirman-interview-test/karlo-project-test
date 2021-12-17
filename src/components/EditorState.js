@@ -17,10 +17,10 @@ export default function EditorState({ editorState }) {
       </div>
       {Object.values(editorState?.entityMap || {}).length && (
         <a
-          href={editorState.entityMap[1].data.link_url}
+          href={editorState.entityMap[1]?.data.link_url}
           className="text-blue-500 hover:underline inline-block"
         >
-          {editorState?.entityMap[1].data.link_url}
+          {editorState?.entityMap[1]?.data.link_url}
         </a>
       )}
     </main>

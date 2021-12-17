@@ -7,7 +7,7 @@ export default function EditorState({ editorState }) {
         ))}
       </ul>
       <div className="flex justify-center">
-        {editorState?.entityMap.length && (
+        {Object.values(editorState?.entityMap || {}).length && (
           <img
             src={editorState?.entityMap[0].data.src}
             alt={editorState?.entityMap[0].data.src}
@@ -15,7 +15,7 @@ export default function EditorState({ editorState }) {
           />
         )}
       </div>
-      {editorState?.entityMap.length && (
+      {Object.values(editorState?.entityMap || {}).length && (
         <a
           href={editorState.entityMap[1].data.link_url}
           className="text-blue-500 hover:underline inline-block"

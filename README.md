@@ -2,7 +2,7 @@
 
 output expectations : [https://doc.mapid.io/](https://doc.mapid.io/)
 
-<!-- my submission : [Visit demo](https://tender-lumiere-e1e16b.netlify.app/) -->
+my submission : [https://objective-gates-3275a2.netlify.app/](https://objective-gates-3275a2.netlify.app/)
 
 ## Technologi Used
 - React js

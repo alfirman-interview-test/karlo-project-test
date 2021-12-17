@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Data } from "../App";
 
 export default function SideNav({ isSideNavOpened, isHide }) {
@@ -26,7 +26,8 @@ export default function SideNav({ isSideNavOpened, isHide }) {
                 {Object.values(data).length &&
                   data[el.key].map((e, i) => (
                     <li key={i}>
-                      <Link
+                      <NavLink
+                        activeClassName="text-blue-500"
                         to={
                           "/" +
                           e.title
@@ -38,7 +39,7 @@ export default function SideNav({ isSideNavOpened, isHide }) {
                         className="text-sm py-2 px-3 text-left w-full bg-white hover:underline rounded-md shadow inline-block"
                       >
                         {e.title}
-                      </Link>
+                      </NavLink>
                     </li>
                   ))}
               </ul>

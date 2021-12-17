@@ -52,12 +52,12 @@ export default function Blog() {
           } `,
         }}
       >
-        <h1 className="text-6xl font-extrabold mb-24 mx-auto w-5/6">
+        <h1 className="text-4xl sm:text-6xl font-extrabold mb-24 mx-auto w-5/6">
           {contentData?.title}
         </h1>
       </div>
       <div className="flex justify-center">
-        <div className="w-1/3">
+        <div className="w-5/6 lg:w-1/3">
           <Author
             pp={contentData?.authors[0].user?.profile_picture.url_compressed}
             name={contentData?.authors[0].user?.full_name}

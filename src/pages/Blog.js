@@ -39,7 +39,7 @@ export default function Blog() {
   }
 
   return (
-    <div className="min-h-[500vh]">
+    <main>
       <div
         className="h-[500px] bg-cover bg-top flex items-end"
         style={{
@@ -64,6 +64,6 @@ export default function Blog() {
           <EditorState editorState={editorState} />
         </div>
       </div>
-    </div>
+    </main>
   );
 }

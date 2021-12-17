@@ -3,7 +3,9 @@ export default function EditorState({ editorState }) {
     <main className="mt-10 text-lg space-y-12">
       <ul className="space-y-6">
         {editorState?.blocks.map((block) => (
-          <li key={block.key}>{block.text}</li>
+          <li style={{ overflowWrap: "break-word" }} key={block.key}>
+            {block.text}
+          </li>
         ))}
       </ul>
       <div className="flex justify-center">

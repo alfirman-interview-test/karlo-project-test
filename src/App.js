@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (scrollY > 300) setHide(false);
+    if (scrollY > 200) setHide(false);
     else setHide(true);
   }, [scrollY]);
 
